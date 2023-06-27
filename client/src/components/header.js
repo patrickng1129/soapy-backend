@@ -1,9 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({
+  isHomePage = true,
+  selectedProfile,
+  authenticated,
+  setSelectedProfile,
+  setAuthenticated,
+}) => {
+  const navigate = useNavigate();
   const logoStyle = { maxHeight: "70px" };
-  const spanStyle = { margin: "5px" };
   const [isClicked, setIsClicked] = useState(false);
+
+  const handleLogOut = () => {
+    localStorage.removeItem("lastAuthenticated");
+    localStorage.removeItem("selectedProfile");
+    setSelectedProfile("");
+    setAuthenticated("");
+
+    navigate("/");
+  };
 
   return (
     <nav className="navbar has-shadow is-white">
@@ -16,26 +32,32 @@ const Header = () => {
             className="py-2 px-2"
           />
         </a>
-        <a
-          className={isClicked ? "navbar-burger" : "navbar-burger is-active"}
-          id="burger"
-          onClick={() => setIsClicked(!isClicked)}
+        {isHomePage ? (
+          <a
+            className={isClicked ? "navbar-burger" : "navbar-burger is-active"}
+            id="burger"
+            onClick={() => setIsClicked(!isClicked)}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        ) : null}
+      </div>
+      {isHomePage ? (
+        <div
+          className={isClicked ? "navbar-menu" : "navbar-menu is-active"}
+          id="nav-links"
         >
-          <span></span>
-          <span></span>
-          <span></span>
-        </a>
-      </div>
-
-      <div
-        className={isClicked ? "navbar-menu" : "navbar-menu is-active"}
-        id="nav-links"
-      >
-        <div className="navbar-end">
-          <a className="navbar-item pr-6">Check-in</a>
-          <a className="navbar-item pr-6">History</a>
+          <div className="navbar-end">
+            <a className="navbar-item pr-6">Check-in</a>
+            <a className="navbar-item pr-6">History</a>
+            <a className="navbar-item pr-6" onClick={handleLogOut}>
+              Log out
+            </a>
+          </div>
         </div>
-      </div>
+      ) : null}
     </nav>
   );
 };

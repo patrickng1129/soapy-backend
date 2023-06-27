@@ -1,9 +1,28 @@
 @keyframes beat {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .edit-icon:hover {
-  animation: beat 0.5s infinite;
+  /* animation: beat 0.5s infinite; */
+  cursor: pointer;
+}
+
+/* .edit-icon {
+  visibility: hidden;
+}
+
+#box-content:hover .edit-icon {
+  visibility: visible;
+} */
+.full-width-box {
+  width: 100%;
+  max-width: 100%;
 }

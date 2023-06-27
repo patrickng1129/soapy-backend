@@ -1,7 +1,11 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
-import './card.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPenToSquare,
+  faSquareCheck,
+  faSquare,
+} from "@fortawesome/free-solid-svg-icons";
+import "./card.css";
 
 const Card = ({ data }) => {
   const retrieveImage = (id) => {
@@ -19,7 +23,10 @@ const Card = ({ data }) => {
       return `Gangplank`;
     }
   };
-  const contentStyle = { display: "flex", flexDirection: "row" };
+  const contentStyle = {
+    display: "flex",
+    flexDirection: "row",
+  };
   const commentUsernameContainer = {
     display: "flex",
     flexDirection: "row",
@@ -27,7 +34,11 @@ const Card = ({ data }) => {
   };
   return (
     <div className="column is-8">
-      <div className="box is-size-6" style={{ minWidth: "50vw" }}>
+      <div
+        className="box"
+        id="box-content"
+        style={{ display: "flex", flexDirection: "row", justifyContent:'space-around' ,minWidth:'50vw' }}
+      >
         <div className="media">
           <div className="media-left">
             <figure className="image is-64x64">
@@ -36,11 +47,7 @@ const Card = ({ data }) => {
           </div>
           <div>
             <div className="content" style={contentStyle}>
-              <p>
-                {`${retrieveUser(data.addedBy)}  ${
-                  data.destinationName
-                }`}
-              </p>
+              <p>{`${retrieveUser(data.addedBy)}  ${data.destinationName}" commodo."`}</p>
             </div>
             {/* TO BE REFACTORED */}
             <div className="box">
@@ -53,10 +60,21 @@ const Card = ({ data }) => {
                 </div>
               </div>
               <div className="pl-1">{data.memos[0].text}</div>
-            </div>
+            </div> 
             {/* END OF REFACTOR */}
-            <FontAwesomeIcon className="edit-icon" icon={faPenToSquare}  />
           </div>
+        </div>
+        <div
+          className="media-right"
+          style={{ display: "flex", flexDirection: "column" }}
+        >
+          <FontAwesomeIcon
+            className="edit-icon py-3"
+            size="lg"
+            icon={faPenToSquare}
+          />
+          <FontAwesomeIcon size="lg" icon={faSquareCheck} />
+          <FontAwesomeIcon type="regular" size="lg" icon={faSquare} />
         </div>
       </div>
     </div>
