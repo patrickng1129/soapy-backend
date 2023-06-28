@@ -35,7 +35,7 @@ const Login = ({ setAuthenticated, authenticated }) => {
         <div className="column is-3"></div>
         <div className="column is-6">
           <div className="section is-size-2" style={{ textAlign: "center" }}>
-            Welcome!
+            Interview Prep
           </div>
           <div className="container mx-5">
             <form

@@ -1,11 +1,6 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPenToSquare,
-  faSquareCheck,
-  faSquare,
-} from "@fortawesome/free-solid-svg-icons";
 import "./card.css";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 
 const Card = ({ data }) => {
   const retrieveImage = (id) => {
@@ -33,24 +28,31 @@ const Card = ({ data }) => {
     alignItems: "center",
   };
   return (
-    <div className="column is-8">
+    <div className="column ">
       <div
         className="box"
         id="box-content"
-        style={{ display: "flex", flexDirection: "row", justifyContent:'space-around' ,minWidth:'50vw' }}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          width: "100%",
+        }}
       >
         <div className="media">
           <div className="media-left">
-            <figure className="image is-64x64">
+            {/* <figure className="image is-64x64">
               <img src={retrieveImage(data.addedBy)} />
-            </figure>
+            </figure> */}
           </div>
           <div>
             <div className="content" style={contentStyle}>
-              <p>{`${retrieveUser(data.addedBy)}  ${data.destinationName}" commodo."`}</p>
+              <p>{`${retrieveUser(data.addedBy)}  ${
+                data.destinationName
+              }" "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl fringilla commodo."`}</p>
             </div>
             {/* TO BE REFACTORED */}
-            <div className="box">
+            {/* <div className="box">
               <div style={commentUsernameContainer}>
                 <figure className="image is-32x32">
                   <img src={retrieveImage(data.memos[0].writtenBy)} />
@@ -60,7 +62,7 @@ const Card = ({ data }) => {
                 </div>
               </div>
               <div className="pl-1">{data.memos[0].text}</div>
-            </div> 
+            </div>  */}
             {/* END OF REFACTOR */}
           </div>
         </div>
@@ -68,13 +70,7 @@ const Card = ({ data }) => {
           className="media-right"
           style={{ display: "flex", flexDirection: "column" }}
         >
-          <FontAwesomeIcon
-            className="edit-icon py-3"
-            size="lg"
-            icon={faPenToSquare}
-          />
-          <FontAwesomeIcon size="lg" icon={faSquareCheck} />
-          <FontAwesomeIcon type="regular" size="lg" icon={faSquare} />
+          <EditOutlinedIcon />
         </div>
       </div>
     </div>

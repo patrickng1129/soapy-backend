@@ -1,12 +1,18 @@
 import React from "react";
-
-const Layout = ({children}) => {
+import Header from "./header";
+const Layout = ({ children, setAuthenticated, setSelectedProfile }) => {
   return (
-    <section className="section">
-      <div className="container">
-        <div className="columns">{children}</div>
-      </div>
-    </section>
+    <>
+      <Header
+        setAuthenticated={setAuthenticated}
+        setSelectedProfile={setSelectedProfile}
+      />
+      <section className="section">
+        <div className="container">
+          <div className="columns">{children}</div>
+        </div>
+      </section>
+    </>
   );
 };
 

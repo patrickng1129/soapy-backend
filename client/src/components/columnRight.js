@@ -1,7 +1,7 @@
 import React from "react";
 
 const ColumnRight = () => {
-  return <div className="column is-2"></div>;
+  return <div className="column"></div>;
 };
 
 export default ColumnRight;

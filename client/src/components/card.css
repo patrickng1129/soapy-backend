@@ -22,7 +22,3 @@
 #box-content:hover .edit-icon {
   visibility: visible;
 } */
-.full-width-box {
-  width: 100%;
-  max-width: 100%;
-}

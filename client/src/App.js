@@ -1,3 +1,4 @@
+import "./App.css";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ColumnLeft from "./components/columnLeft";
@@ -9,7 +10,8 @@ import datas from "./mockData.json";
 import Login from "./components/login";
 import ProtectedRoute from "./components/protected-route";
 import ProfileSelector from "./components/profileSelector";
-
+import AddEvent from "./components/addEvent";
+import AddEventsPage from "./components/addEventsPage";
 function App() {
   const [authenticated, setAuthenticated] = useState(() => {
     const lastAuthenticated = localStorage.getItem("lastAuthenticated");
@@ -29,15 +31,15 @@ function App() {
   const Home = () => {
     return (
       <div className="App">
-        <Header
-          authenticated={authenticated}
-          selectedProfile={selectedProfile}
+        <Layout
           setAuthenticated={setAuthenticated}
           setSelectedProfile={setSelectedProfile}
-        ></Header>
-        <Layout>
+        >
           <ColumnLeft />
           <div className="block">
+            <div className="block" style={{ textAlign: "center" }}>
+              <AddEvent />
+            </div>
             {datas.map((data) => {
               return <Card data={data} key={data._id} />;
             })}
@@ -77,6 +79,20 @@ function App() {
             <ProtectedRoute authenticated={authenticated && !!selectedProfile}>
               <Home />
             </ProtectedRoute>
+          }
+        />
+        <Route
+          path="form"
+          element={
+            <Layout
+              setAuthenticated={setAuthenticated}
+              setSelectedProfile={setSelectedProfile}
+            >
+              <AddEventsPage
+                setAuthenticated={setAuthenticated}
+                setSelectedProfile={setSelectedProfile}
+              />
+            </Layout>
           }
         />
       </Routes>

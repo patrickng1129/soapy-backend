@@ -23,13 +23,13 @@ const ProfileSelector = ({
           className="section is-size-1 py-1"
           style={{ textAlign: "center" }}
         >
-          欢迎回家
+          Welcome
         </section>
         <section
           className="section is-size-3 pb-6 pt-1"
           style={{ textAlign: "center" }}
         >
-          你是谁呢
+          Please Select an Option
         </section>
         <div className="columns">
           <div className="column is-3"></div>
@@ -39,10 +39,10 @@ const ProfileSelector = ({
               style={{ cursor: "pointer" }}
               onClick={() => handleProfileSelect("Soapy")}
             >
-              <figure className="image is-256x256">
+              {/* <figure className="image is-256x256">
                 <img src={`${process.env.PUBLIC_URL}/ppp.jpeg`} />
-              </figure>
-              <div style={{ textAlign: "center" }}>I'm Soapy</div>
+              </figure> */}
+              <div style={{ textAlign: "center" }}>I'm Gangplank</div>
             </div>
           </div>
           <div className="column is-3">
@@ -51,10 +51,10 @@ const ProfileSelector = ({
               style={{ cursor: "pointer" }}
               onClick={() => handleProfileSelect("Strawberry")}
             >
-              <figure className="image is-256x256">
+              {/* <figure className="image is-256x256">
                 <img src={`${process.env.PUBLIC_URL}/ppa.jpeg`} />
-              </figure>
-              <div style={{ textAlign: "center" }}>I'm StrawBerry</div>
+              </figure> */}
+              <div style={{ textAlign: "center" }}>I'm Kassadin</div>
             </div>
           </div>
           <div className="column is-3"></div>
