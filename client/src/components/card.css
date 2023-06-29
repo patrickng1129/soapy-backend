@@ -10,15 +10,31 @@
   }
 }
 
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.card {
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
+  animation-delay: calc(var(--i) * 100ms);
+}
+
 .edit-icon:hover {
-  /* animation: beat 0.5s infinite; */
+  animation: beat 0.5s infinite;
   cursor: pointer;
 }
 
-/* .edit-icon {
+.edit-icon {
   visibility: hidden;
 }
 
 #box-content:hover .edit-icon {
   visibility: visible;
-} */
+}

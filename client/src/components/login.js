@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "./header";
-
+import './login.css'
 const Login = ({ setAuthenticated, authenticated }) => {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
@@ -29,13 +29,13 @@ const Login = ({ setAuthenticated, authenticated }) => {
   };
 
   return (
-    <>
+    <div className="login-page">
       <Header isHomePage={false} />
       <div className="columns">
         <div className="column is-3"></div>
         <div className="column is-6">
           <div className="section is-size-2" style={{ textAlign: "center" }}>
-            Interview Prep
+            Welcome
           </div>
           <div className="container mx-5">
             <form
@@ -54,8 +54,13 @@ const Login = ({ setAuthenticated, authenticated }) => {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Please Enter The Password :)"
                 required
+                style={{ borderRadius: "20px" }}
               />
-              <button className="button my-3" type="submit">
+              <button
+                className="button my-5"
+                type="submit"
+                style={{ borderRadius: "20px", width: "30%", margin: "0 auto" }}
+              >
                 Submit
               </button>
             </form>
@@ -63,7 +68,7 @@ const Login = ({ setAuthenticated, authenticated }) => {
         </div>
         <div className="column is-3"></div>
       </div>
-    </>
+    </div>
   );
 };
 

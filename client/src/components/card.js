@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "./card.css";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import { useNavigate } from "react-router-dom";
 
-const Card = ({ data }) => {
+const Card = ({ data, setEditingData, index }) => {
+  const navigate = useNavigate();
+  console.log("aaa: ", data.memos);
+
   const retrieveImage = (id) => {
-    if (id === "60d5ecb44b492bd0600c5896") {
-      return `${process.env.PUBLIC_URL}/pig-A.png`;
+    if (id === "Strawberry") {
+      return `${process.env.PUBLIC_URL}/ppa.jpeg`;
     } else {
-      return `${process.env.PUBLIC_URL}/pig-B.png`;
+      return `${process.env.PUBLIC_URL}/ppp.jpeg`;
     }
   };
-
   const retrieveUser = (id) => {
-    if (id === "60d5ecb44b492bd0600c5896") {
-      return `Kassadin`;
+    if (id === "Strawberry") {
+      return `Strawberry`;
     } else {
-      return `Gangplank`;
+      return `Soapy`;
     }
+  };
+  const handleEditClick = () => {
+    setEditingData(data);
+    navigate("/form");
   };
   const contentStyle = {
     display: "flex",
@@ -30,47 +37,50 @@ const Card = ({ data }) => {
   return (
     <div className="column ">
       <div
-        className="box"
+        className="box card"
         id="box-content"
         style={{
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-around",
           width: "100%",
+          "--i": index,
+          borderRadius: "20px",
         }}
       >
         <div className="media">
           <div className="media-left">
-            {/* <figure className="image is-64x64">
+            <figure className="image is-64x64">
               <img src={retrieveImage(data.addedBy)} />
-            </figure> */}
+            </figure>
           </div>
           <div>
             <div className="content" style={contentStyle}>
-              <p>{`${retrieveUser(data.addedBy)}  ${
-                data.destinationName
-              }" "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl fringilla commodo."`}</p>
+              <p>{`${data.addedBy}  ${data.action} ${data.eventName}`}</p>
             </div>
-            {/* TO BE REFACTORED */}
-            {/* <div className="box">
-              <div style={commentUsernameContainer}>
-                <figure className="image is-32x32">
-                  <img src={retrieveImage(data.memos[0].writtenBy)} />
-                </figure>
-                <div className="pl-2">
-                  {retrieveUser(data.memos[0].writtenBy)} said
+            {data.memos.text === "" ? null : (
+              <div className="box py-2">
+                <div style={commentUsernameContainer}>
+                  <figure className="image is-32x32">
+                    <img src={retrieveImage(data.memos.writtenBy)} />
+                  </figure>
+                  <div className="pl-2">
+                    {retrieveUser(data.memos.writtenBy) + "提醒说:"}
+                  </div>
                 </div>
+                <div style={{ textAlign: "center" }}>{data.memos.text}</div>
               </div>
-              <div className="pl-1">{data.memos[0].text}</div>
-            </div>  */}
-            {/* END OF REFACTOR */}
+            )}
           </div>
         </div>
         <div
           className="media-right"
           style={{ display: "flex", flexDirection: "column" }}
         >
-          <EditOutlinedIcon />
+          <EditOutlinedIcon
+            onClick={() => handleEditClick()}
+            className="edit-icon"
+          />
         </div>
       </div>
     </div>

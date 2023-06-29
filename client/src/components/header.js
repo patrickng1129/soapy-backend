@@ -8,7 +8,7 @@ const Header = ({
 }) => {
   const navigate = useNavigate();
   const logoStyle = { maxHeight: "70px" };
-  const [isClicked, setIsClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState(true);
 
   const handleLogOut = () => {
     localStorage.removeItem("lastAuthenticated");
@@ -22,15 +22,18 @@ const Header = ({
   return (
     <nav className="navbar has-shadow is-white">
       <div className="navbar-brand pl-3">
-        <a className="navbar-item" onClick={() => navigate('/home')}>
-          {/* <img
-            src={process.env.PUBLIC_URL + "/pig.png"}
-            alt="A Picture of Soapy"
-            style={logoStyle}
-            className="py-2 px-2"
-          /> */}
-          Hello
-        </a>
+        {isHomePage ? (
+          <a className="navbar-item" onClick={() => navigate("/home")}>
+            <img
+              src={process.env.PUBLIC_URL + "/pig.png"}
+              alt="A Picture of Soapy"
+              style={logoStyle}
+              className="py-2 px-2"
+            />
+            饼之家
+          </a>
+        ) : null}
+
         {isHomePage ? (
           <a
             className={isClicked ? "navbar-burger" : "navbar-burger is-active"}
@@ -49,10 +52,11 @@ const Header = ({
           id="nav-links"
         >
           <div className="navbar-end">
-            <a className="navbar-item pr-6">Check-in</a>
-            <a className="navbar-item pr-6">History</a>
-            <a className="navbar-item pr-6" onClick={handleLogOut}>
-              Log out
+            <a className="navbar-item pr-5">V 1.0</a>
+            <a className="navbar-item pr-5">打卡(开发中)</a>
+            <a className="navbar-item pr-5">画完的饼(开发中)</a>
+            <a className="navbar-item pr-5" onClick={handleLogOut}>
+              出门啦👋
             </a>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import DrawOutlinedIcon from "@mui/icons-material/DrawOutlined";
 import { useNavigate } from "react-router-dom";
+import "./addEvent.css";
 
 const AddEvent = () => {
   const navigate = useNavigate();
@@ -15,20 +16,21 @@ const AddEvent = () => {
       }}
     >
       <div
-        className="box"
+        className="box add-button"
         style={{
           minWidth: "5vw",
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
           cursor: "pointer",
+          borderRadius: "20px",
         }}
         onClick={() => navigate("/form")}
       >
         <div className="pr-2" style={{ textAlign: "center" }}>
-          Add
+          点我画饼
         </div>
-        <DrawOutlinedIcon fontSize="large" sx={{ color: "black" }} />
+        <DrawOutlinedIcon fontSize="medium" sx={{ color: "black" }} />
       </div>
     </div>
   );

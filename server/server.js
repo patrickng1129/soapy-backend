@@ -2,12 +2,13 @@ const express = require("express");
 const PORT = process.env.PORT || 8000;
 const mongoose = require("mongoose");
 require("dotenv").config();
+const cors = require("cors");
 
-// const articlesRouter = require('./routes/articles')
+const eventRouter = require("./routes/eventRoute");
 const checkPasswordRouter = require("./routes/checkPassword");
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 
 // Connects to the MongoDB Atlas Cluster
@@ -19,7 +20,7 @@ mongoose
   .then(() => console.log("Connected to MongoDB Atlas"))
   .catch((err) => console.log("Could not connect to MongoDB Atlas"));
 
-// app.post('/api/articles', articlesRouter)
+app.use("/api", eventRouter);
 app.post("/api/check-password", checkPasswordRouter);
 
 app.listen(PORT, () => {

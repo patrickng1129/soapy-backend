@@ -23,38 +23,38 @@ const ProfileSelector = ({
           className="section is-size-1 py-1"
           style={{ textAlign: "center" }}
         >
-          Welcome
+          欢迎回家
         </section>
         <section
           className="section is-size-3 pb-6 pt-1"
           style={{ textAlign: "center" }}
         >
-          Please Select an Option
+          你是谁呢
         </section>
         <div className="columns">
           <div className="column is-3"></div>
           <div className="column is-3">
             <div
               className="box"
-              style={{ cursor: "pointer" }}
+              style={{ cursor: "pointer", borderRadius: "20px" }}
               onClick={() => handleProfileSelect("Soapy")}
             >
-              {/* <figure className="image is-256x256">
+              <figure className="image is-256x256">
                 <img src={`${process.env.PUBLIC_URL}/ppp.jpeg`} />
-              </figure> */}
-              <div style={{ textAlign: "center" }}>I'm Gangplank</div>
+              </figure>
+              <div style={{ textAlign: "center" }}>I'm Soapy</div>
             </div>
           </div>
           <div className="column is-3">
             <div
               className="box"
-              style={{ cursor: "pointer" }}
+              style={{ cursor: "pointer", borderRadius: "20px" }}
               onClick={() => handleProfileSelect("Strawberry")}
             >
-              {/* <figure className="image is-256x256">
+              <figure className="image is-256x256">
                 <img src={`${process.env.PUBLIC_URL}/ppa.jpeg`} />
-              </figure> */}
-              <div style={{ textAlign: "center" }}>I'm Kassadin</div>
+              </figure>
+              <div style={{ textAlign: "center" }}>I'm Strawberry</div>
             </div>
           </div>
           <div className="column is-3"></div>

@@ -2,14 +2,15 @@ const mongoose = require("mongoose");
 
 const MemoSchema = new mongoose.Schema({
   text: String,
-  writtenBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  writtenBy: String,
 });
 
 const EventSchema = new mongoose.Schema({
-  addedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  addedBy: String,
   eventName: String,
+  action: String,
   completed: Boolean,
-  memos: [MemoSchema],
+  memos: MemoSchema,
 });
 
 const EventModel = mongoose.model("Event", EventSchema);

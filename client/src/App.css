@@ -2,8 +2,8 @@
 
 body,
 html {
-  /* font-family: "ZCOOL KuaiLe", sans-serif !important; 
-  background-color: #FCF9F2; */
-  height: 100%;
+  font-family: "ZCOOL KuaiLe", sans-serif !important; 
+  background-color: #FCF9F2;
+  min-height: 100vh;
   width: 100%;
 }
