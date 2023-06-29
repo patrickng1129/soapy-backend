@@ -23,6 +23,6 @@ mongoose
 app.use("/api", eventRouter);
 app.post("/api/check-password", checkPasswordRouter);
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
